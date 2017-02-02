@@ -10,15 +10,11 @@ Clone or download the source code.
 
 Android Studio 2.x
 
-
 ### Coding style tests
 
 Here you can download and install the java codestyle.
 https://github.com/android10/java-code-styles
 
-```
-Give an example
-```
 
 ## Deployment
 
@@ -33,12 +29,15 @@ Here are some useful Gradle/adb commands for executing this example:
 ## Contributing
 If you wish to contribute, Please use clean and try to follow the design process. Thank you.
 
+Discussions
+-----------------
+
+Refer to the issues section: https://github.com/Pentico/StudioTAM/issues
+
 ## Authors
 
 * **Tuane Morulane** - *Initial work* - [Pentico](https://github.com/Pentico)
-```
-See also the list of [contributors](https://github.com/Android-Development/TuPlay/contributors) who participated in this project.
-```
+
 ## License
 
 This project is licensed under the GNU License - see the [LICENSE.md](LICENSE.md) file for details
