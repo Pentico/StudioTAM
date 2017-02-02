@@ -1,4 +1,4 @@
-# StudioTAM
+# [StudioTAM]
 
 I was tired of using other peoples anroid music player, I made one that works to my liking 
 
@@ -13,7 +13,7 @@ Android Studio 2.x
 ### Coding style tests
 
 Here you can download and install the java codestyle.
-https://github.com/android10/java-code-styles
+https://github.com/ndroid-Development-Projects/java-code-styles
 
 
 ## Deployment
