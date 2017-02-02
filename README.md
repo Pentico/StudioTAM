@@ -27,7 +27,7 @@ Here are some useful Gradle/adb commands for executing this example:
  
 
 ## Contributing
-If you wish to contribute, Please use clean and try to follow the design process. Thank you.
+If you wish to contribute, Please use clean Code and try to follow the design process. Thank you.
 
 Discussions
 -----------------
