@@ -4,6 +4,8 @@ package com.pencorp.data.cache;
  * Created by Tuane on 3/02/17.
  */
 
+import com.pencorp.data.entity.UserEntity;
+
 import rx.Observable;
 
 /**

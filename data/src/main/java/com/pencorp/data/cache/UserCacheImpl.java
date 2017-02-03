@@ -6,6 +6,11 @@ package com.pencorp.data.cache;
 
 import android.content.Context;
 
+import com.pencorp.data.cache.JsonSerializer.JsonSerializer;
+import com.pencorp.data.entity.UserEntity;
+import com.pencorp.data.exception.UserNotFoundException;
+import com.pencorp.domain.executor.ThreadExecutor;
+
 import java.io.File;
 
 import javax.inject.Inject;
