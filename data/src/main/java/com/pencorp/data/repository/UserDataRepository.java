@@ -4,8 +4,11 @@ package com.pencorp.data.repository;
  * Created by Tuane on 3/02/17.
  */
 
+import com.pencorp.data.entity.mapper.UserEntityDataMapper;
 import com.pencorp.data.repository.datasource.UserDataStore;
 import com.pencorp.data.repository.datasource.UserDataStoreFactory;
+import com.pencorp.domain.User;
+import com.pencorp.domain.repository.UserRepository;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -16,7 +19,7 @@ import rx.Observable;
  * {@link UserRepository} for retrieving user data.
  */
 @Singleton
-public class UserDataRepository {
+public class UserDataRepository implements UserRepository {
 
     private final UserDataStoreFactory userDataStoreFactory;
     private final UserEntityDataMapper userEntityDataMapper;
