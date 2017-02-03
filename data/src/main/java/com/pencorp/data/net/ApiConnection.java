@@ -12,8 +12,9 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-package com.pencorp.domain.net;
+ *//*
+
+package com.pencorp.data.net;
 
 
 import java.io.IOException;
@@ -22,11 +23,13 @@ import java.net.URL;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 
+*/
 /**
  * Api Connection class used to retrieve data from the cloud.
  * Implements {@link java.util.concurrent.Callable} so when executed asynchronously can
  * return a value.
- */
+ *//*
+
 public class ApiConnection implements Callable<String> {
 
   private static final String CONTENT_TYPE_LABEL = "Content-Type";
@@ -43,12 +46,14 @@ public class ApiConnection implements Callable<String> {
     return new ApiConnection(url);
   }
 
-  /**
+  */
+/**
    * Do a request to an api synchronously.
    * It should not be executed in the main thread of the application.
    *
    * @return A string response
-   */
+   *//*
+
   @Nullable
   public String requestSyncCall() {
     connectToApi();
@@ -83,3 +88,4 @@ public class ApiConnection implements Callable<String> {
     return requestSyncCall();
   }
 }
+*/

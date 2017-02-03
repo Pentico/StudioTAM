@@ -12,16 +12,15 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-package com.pencorp.domain.net;
+ *//*
+
+package com.pencorp.data.net;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-import com.fernandocejas.android10.sample.data.entity.UserEntity;
-import com.fernandocejas.android10.sample.data.entity.mapper.UserEntityJsonMapper;
-import com.fernandocejas.android10.sample.data.exception.NetworkConnectionException;
+
 import com.fernandocejas.frodo.annotation.RxLogObservable;
 
 import java.net.MalformedURLException;
@@ -29,20 +28,24 @@ import java.util.List;
 
 import rx.Observable;
 
+*/
 /**
  * {@link RestApi} implementation for retrieving data from the network.
- */
+ *//*
+
 public class RestApiImpl implements RestApi {
 
   private final Context context;
   private final UserEntityJsonMapper userEntityJsonMapper;
 
-  /**
+  */
+/**
    * Constructor of the class
    *
    * @param context {@link android.content.Context}.
    * @param userEntityJsonMapper {@link UserEntityJsonMapper}.
-   */
+   *//*
+
   public RestApiImpl(Context context, UserEntityJsonMapper userEntityJsonMapper) {
     if (context == null || userEntityJsonMapper == null) {
       throw new IllegalArgumentException("The constructor parameters cannot be null!!!");
@@ -105,11 +108,13 @@ public class RestApiImpl implements RestApi {
     return ApiConnection.createGET(apiUrl).requestSyncCall();
   }
 
-  /**
+  */
+/**
    * Checks if the device has any active internet connection.
    *
    * @return true device with internet connection, otherwise false.
-   */
+   *//*
+
   private boolean isThereInternetConnection() {
     boolean isConnected;
 
@@ -121,3 +126,4 @@ public class RestApiImpl implements RestApi {
     return isConnected;
   }
 }
+*/
