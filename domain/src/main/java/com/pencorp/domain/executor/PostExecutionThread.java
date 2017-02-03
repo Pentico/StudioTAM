@@ -16,6 +16,7 @@
 package com.pencorp.domain.executor;
 
 
+import rx.Scheduler;
 
 /**
  * Thread abstraction created to change the execution context from any thread to any other thread.

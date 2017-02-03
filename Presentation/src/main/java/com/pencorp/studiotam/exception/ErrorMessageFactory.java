@@ -17,9 +17,10 @@ package com.pencorp.studiotam.exception;
 
 import android.content.Context;
 
-import com.fernandocejas.android10.sample.data.exception.NetworkConnectionException;
-import com.fernandocejas.android10.sample.data.exception.UserNotFoundException;
-import com.fernandocejas.android10.sample.presentation.R;
+import com.pencorp.data.exception.NetworkConnectionException;
+import com.pencorp.data.exception.UserNotFoundException;
+import com.pencorp.studiotam.R;
+
 
 /**
  * Factory used to create error messages from an Exception as a condition.
