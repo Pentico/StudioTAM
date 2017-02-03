@@ -13,7 +13,7 @@ Android Studio 2.x
 ### Coding style tests
 
 Here you can download and install the java codestyle.
-https://github.com/ndroid-Development-Projects/java-code-styles
+https://github.com/Android-Development-Projects/java-code-styles
 
 
 ## Deployment
