@@ -15,7 +15,7 @@ public interface SongCache {
      *
      * @param songId The user id to retrieve data.
      */
-    Observable<SongEntity> get(final int songId);
+    Observable<SongEntity> get(final long songId);
 
     /**
      * Puts and element into the cache.
@@ -30,7 +30,7 @@ public interface SongCache {
      * @param songId The id used to look for inside the cache.
      * @return true if the element is cached, otherwise false.
      */
-    boolean isCached(final int songId);
+    boolean isCached(final long songId);
 
     /**
      * Checks if the cache is expired.

@@ -34,5 +34,10 @@ public class DiskSongDataStore implements SongDataStore {
 
     }
 
+    @Override
+    public Observable<SongEntity> songEntityDetails(final long songId) {
+        return this.songCache.get(songId);
+    }
+
 
 }
