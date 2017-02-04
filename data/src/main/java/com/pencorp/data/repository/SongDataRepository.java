@@ -33,8 +33,9 @@ public class SongDataRepository  implements SongRepository{
     }
 
     @Override
-    public Observable<Song> song(int songId) {
-        final SongDataStore songDataStore = this.songDataStoreFactory.
-        return null;
+    public Observable<Song> song(long songId) {
+        final SongDataStore songDataStore = this.songDataStoreFactory.create(songId);
+        return songDataStore.songEntityDetails(songId).map(this.songEntityDataMapper::transform);
     }
+
 }

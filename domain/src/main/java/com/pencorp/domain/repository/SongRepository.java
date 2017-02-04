@@ -17,5 +17,5 @@ public interface SongRepository {
      *
      * @param songId The song id used to retrieve song data.
      */
-    Observable<Song> song(final int songId);
+    Observable<Song> song(final long songId);
 }

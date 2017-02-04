@@ -20,4 +20,11 @@ public interface SongDataStore {
      */
     Observable<List<SongEntity>> songEntityList();
 
+    /**
+     * Get an {@link rx.Observable} which will emit a {@link SongEntity} by its Id.
+     *
+     * @param songId The id to retrieve song data.
+     */
+    Observable<SongEntity> songEntityDetails(final long songId);
 }
+
