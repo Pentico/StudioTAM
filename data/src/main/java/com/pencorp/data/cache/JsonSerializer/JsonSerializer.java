@@ -5,6 +5,7 @@ package com.pencorp.data.cache.JsonSerializer;
  */
 
 import com.google.gson.Gson;
+import com.pencorp.data.entity.SongEntity;
 import com.pencorp.data.entity.UserEntity;
 
 import javax.inject.Inject;
@@ -41,4 +42,6 @@ public class JsonSerializer {
         UserEntity userEntity = gson.fromJson(jsonString, UserEntity.class);
         return userEntity;
     }
+
+
 }
