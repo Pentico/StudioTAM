@@ -25,13 +25,14 @@ public class SongEntityMapper {
     public Song transform(SongEntity songEntity) {
         Song song = null;
         if (songEntity != null) {
-            song = new Song(songEntity.getUserId());
+            song = new Song(songEntity.getId(), songEntity.getFilePath());
             song.setCoverUrl(songEntity.getCoverUrl());
             song.setYear(songEntity.getYear());
             song.setArtist(songEntity.getArtist());
             song.setAlbum(songEntity.getAlbum());
-            song.setDescription(songEntity.getDescription());
-            song.setName(songEntity.getName());
+            song.setTrack_no(songEntity.getTrack_no());
+            song.setDuration_ms(songEntity.getDuration_ms());
+
         }
 
         return song;

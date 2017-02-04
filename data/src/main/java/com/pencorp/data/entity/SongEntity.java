@@ -1,48 +1,49 @@
 package com.pencorp.data.entity;
 
-/**
- * Created by Tuane on 3/02/17.
- */
-
 import com.google.gson.annotations.SerializedName;
 
+
 /**
- *  Song Entity used in data layer
+ * Created by Tuane on 4/02/17.
+ */
+
+/**
+ * Song Entity used in the data layer.
  */
 public class SongEntity {
 
-
     @SerializedName("id")
-    private int userId;
+    private long id;
 
-    @SerializedName("cover_url")
-    private String coverUrl;
+    @SerializedName("filePath")
+    private String filePath;
 
-    @SerializedName("name")
-    private String name;
-
-    @SerializedName("description")
-    private String description;
+    @SerializedName("title")
+    private String title       = "";
 
     @SerializedName("artist")
-    private String artist;
+    private String artist      = "";
 
     @SerializedName("album")
-    private String album;
+    private String album       = "";
 
     @SerializedName("year")
-    private int year;
+    private int    year        = -1;
+
+    @SerializedName("genre")
+    private String genre       = "";
+
+    @SerializedName("track_no")
+    private int    track_no    = -1;
+
+    @SerializedName("duration_ms")
+    private long   duration_ms = -1;
+
+    @SerializedName("coverUrl")
+    private String coverUrl;
 
     public SongEntity() {
         //empty
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
     }
 
     public String getCoverUrl() {
@@ -53,20 +54,28 @@ public class SongEntity {
         this.coverUrl = coverUrl;
     }
 
-    public String getName() {
-        return name;
+    public long getId() {
+        return id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public String getDescription() {
-        return description;
+    public String getFilePath() {
+        return filePath;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getArtist() {
@@ -93,4 +102,27 @@ public class SongEntity {
         this.year = year;
     }
 
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public int getTrack_no() {
+        return track_no;
+    }
+
+    public void setTrack_no(int track_no) {
+        this.track_no = track_no;
+    }
+
+    public long getDuration_ms() {
+        return duration_ms;
+    }
+
+    public void setDuration_ms(long duration_ms) {
+        this.duration_ms = duration_ms;
+    }
 }

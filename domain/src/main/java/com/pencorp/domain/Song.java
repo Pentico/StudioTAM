@@ -6,20 +6,24 @@ package com.pencorp.domain;
 
 public class Song {
 
-    private final int songId;
+    private final long songId;
+    private final String filepath;
 
-    public Song(int songId){
+    public Song(long songId, String filepath){
         this.songId = songId;
+        this.filepath = filepath;
     }
 
     private String coverUrl;
-    private String description;
-    private String name;
+    private String title;
     private String artist;
     private String album;
     private int year;
+    private String genre;
+    private int track_no;
+    private long duration_ms;
 
-    public int getSongId() {
+    public long getSongId() {
         return songId;
     }
 
@@ -31,20 +35,16 @@ public class Song {
         this.coverUrl = coverUrl;
     }
 
-    public String getDescription() {
-        return description;
+    public String getFilepath() {
+        return filepath;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public String getTitle() {
+        return title;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getArtist() {
@@ -69,5 +69,37 @@ public class Song {
 
     public void setYear(int year) {
         this.year = year;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public int getTrack_no() {
+        return track_no;
+    }
+
+    public void setTrack_no(int track_no) {
+        this.track_no = track_no;
+    }
+
+    public long getDuration_ms() {
+        return duration_ms;
+    }
+
+    public void setDuration_ms(long duration_ms) {
+        this.duration_ms = duration_ms;
+    }
+
+    public long getDurationSeconds() {
+        return getDuration_ms() / 1000;
+    }
+
+    public long getDurationMinutes() {
+        return getDurationSeconds() / 60;
     }
 }

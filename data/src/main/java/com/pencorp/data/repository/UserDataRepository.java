@@ -5,8 +5,8 @@ package com.pencorp.data.repository;
  */
 
 import com.pencorp.data.entity.mapper.UserEntityDataMapper;
-import com.pencorp.data.repository.datasource.UserDataStore;
-import com.pencorp.data.repository.datasource.UserDataStoreFactory;
+import com.pencorp.data.repository.datasource.UserData.UserDataStore;
+import com.pencorp.data.repository.datasource.UserData.UserDataStoreFactory;
 import com.pencorp.domain.User;
 import com.pencorp.domain.repository.UserRepository;
 
