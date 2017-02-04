@@ -17,10 +17,10 @@ import javax.inject.Singleton;
  */
 
 @Singleton
-public class SongEntityMapper {
+public class SongEntityDataMapper {
 
     @Inject
-    public SongEntityMapper() {}
+    public SongEntityDataMapper() {}
 
     public Song transform(SongEntity songEntity) {
         Song song = null;
