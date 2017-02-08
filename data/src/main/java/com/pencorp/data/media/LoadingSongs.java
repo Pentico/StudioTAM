@@ -10,6 +10,7 @@ import com.pencorp.data.entity.SongEntity;
 import com.pencorp.domain.Song;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Tuane on 4/02/17.
@@ -17,32 +18,18 @@ import java.util.ArrayList;
 
 public class LoadingSongs {
 
-    /**
-     * Flag that tells if we're  scanning songs right now
-     */
-    private boolean scanningSongs;
+
 
     /**
-     * Flag that tells if successfully scanned all songs.
-     */
-    private boolean scannedSongs;
-
-    /**
-     * List of all Songs
-     */
-    private ArrayList<SongEntity> SongsList;
-
-    /**
-     * This is going to be long
+     * This is going to take time ....
      *  TODO Make this functions return any type of Response or (format ) mas tarder
      *  */
-    public void scanSongs(Context c, String fromWhere){
+    public List scanSongs(Context c){
 
-        if(scanningSongs){
-            return;
-        }else {
+        ArrayList<SongEntity> SongsList = new ArrayList<>();
+        String fromWhere = "internal";  // where we scanning for song might change it later
 
-            Uri musicUri = ((fromWhere == "internal") ?
+           Uri musicUri = ((fromWhere == "internal") ?
                     android.provider.MediaStore.Audio.Media.INTERNAL_CONTENT_URI :
                     android.provider.MediaStore.Audio.Media.EXTERNAL_CONTENT_URI);
 
@@ -108,11 +95,8 @@ public class LoadingSongs {
             }
             cursor.close();
 
+        return SongsList;
 
-            scannedSongs = true;
-            scanningSongs = false;
-
-        }
     }
 
 
