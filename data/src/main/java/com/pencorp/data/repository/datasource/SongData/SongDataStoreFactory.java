@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 
 import com.pencorp.data.cache.SongCache;
+import com.pencorp.domain.Song;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -27,7 +28,7 @@ public class SongDataStoreFactory {
     /**
      * Create {@link SongDataStore} from a songId
      */
-    public SongDataStore create(long sondId) {
+    public SongDataStore create(long songId) {
         SongDataStore songDataStore;
         songDataStore = new DiskSongDataStore(this.songCache);
 
@@ -39,5 +40,14 @@ public class SongDataStoreFactory {
         }*/
 
         return songDataStore;
+    }
+
+    /**
+     * TODO
+     * Create {@link SongDataStore} to retrieve data from the Cloud.
+     * @return
+     */
+    public SongDataStore createCloudDataStore(){
+        return null;
     }
 }

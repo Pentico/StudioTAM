@@ -6,6 +6,8 @@ import com.pencorp.data.repository.datasource.SongData.SongDataStoreFactory;
 import com.pencorp.domain.Song;
 import com.pencorp.domain.repository.SongRepository;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
@@ -38,4 +40,8 @@ public class SongDataRepository  implements SongRepository{
         return songDataStore.songEntityDetails(songId).map(this.songEntityDataMapper::transform);
     }
 
+    @Override
+    public Observable<List<Song>> songs() {
+        final SongDataStore songDataStore = this.songDataStoreFactory.cra
+    }
 }
