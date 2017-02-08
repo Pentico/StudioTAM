@@ -3,6 +3,10 @@ package com.pencorp.data.entity.mapper;
 import com.pencorp.data.entity.SongEntity;
 import com.pencorp.domain.Song;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
@@ -38,5 +42,22 @@ public class SongEntityDataMapper {
         return song;
     }
 
+    /**
+     * Transform a List of {@link SongEntity} into a Collection of {@link Song  }
+     * @param songEntityCollection
+     * @return {@link Song} if valid {@link SongEntity} otherwise null.
+     *
+     */
+    public List<Song> transform(Collection<SongEntity> songEntityCollection) {
+        List<Song> songList = new ArrayList<>();
+        Song song;
+        for (SongEntity songEntity : songEntityCollection) {
+            song = transform(songEntity);
+            if(song != null){
+                songList.add(song);
+            }
+        }
 
+        return songList;
+    }
 }
