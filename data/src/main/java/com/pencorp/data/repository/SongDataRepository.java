@@ -42,6 +42,7 @@ public class SongDataRepository  implements SongRepository{
 
     @Override
     public Observable<List<Song>> songs() {
-        final SongDataStore songDataStore = this.songDataStoreFactory.cra
+        final SongDataStore songDataStore = this.songDataStoreFactory.createDiskDataStore();
+        return songDataStore.songEntityList().map(this.songEntityDataMapper::transform);
     }
 }

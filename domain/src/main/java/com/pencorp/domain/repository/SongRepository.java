@@ -18,4 +18,10 @@ public interface SongRepository {
      * @param songId The song id used to retrieve song data.
      */
     Observable<Song> song(final long songId);
+
+    /**
+     * Get an {@link rx.Observable} which will emit a {@link Song}
+     * @return
+     */
+    Observable<List<Song>> songs();
 }

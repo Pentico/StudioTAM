@@ -29,9 +29,7 @@ public class DiskSongDataStore implements SongDataStore {
 
     @Override
     public Observable<List<SongEntity>> songEntityList() {
-        //TODO: implement simple cache for storing/retrieving collections of song.
-        throw new UnsupportedOperationException("Operation is not available!!!");
-
+       return this.songCache.get();
     }
 
     @Override

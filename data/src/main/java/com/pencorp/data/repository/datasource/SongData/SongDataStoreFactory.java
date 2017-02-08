@@ -50,8 +50,11 @@ public class SongDataStoreFactory {
         return null;
     }
 
+    /**
+     * Get a list of all songs on the cached
+     * @return
+     */
     public SongDataStore createDiskDataStore() {
-
-        return new DiskSongDataStore()
+        return new DiskSongDataStore(songCache);
     }
 }
