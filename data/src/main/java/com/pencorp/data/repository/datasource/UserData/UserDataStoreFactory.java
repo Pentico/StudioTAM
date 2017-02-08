@@ -3,7 +3,7 @@ package com.pencorp.data.repository.datasource.UserData;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import com.pencorp.data.cache.UserCache;
+import com.pencorp.data.cache.User.UserCache;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;

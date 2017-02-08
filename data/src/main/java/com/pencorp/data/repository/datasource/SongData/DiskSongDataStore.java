@@ -4,7 +4,7 @@ package com.pencorp.data.repository.datasource.SongData;
  * Created by Tuane on 4/02/17.
  */
 
-import com.pencorp.data.cache.SongCache;
+import com.pencorp.data.cache.Song.SongCache;
 import com.pencorp.data.entity.SongEntity;
 
 import java.util.List;

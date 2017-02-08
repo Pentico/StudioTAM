@@ -1,6 +1,6 @@
 package com.pencorp.data.repository.datasource.UserData;
 
-import com.pencorp.data.cache.UserCache;
+import com.pencorp.data.cache.User.UserCache;
 import com.pencorp.data.entity.UserEntity;
 
 import java.util.List;

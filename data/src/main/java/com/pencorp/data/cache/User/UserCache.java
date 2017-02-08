@@ -1,10 +1,12 @@
-package com.pencorp.data.cache;
+package com.pencorp.data.cache.User;
 
 /**
  * Created by Tuane on 3/02/17.
  */
 
 import com.pencorp.data.entity.UserEntity;
+
+import java.util.List;
 
 import rx.Observable;
 
@@ -18,6 +20,7 @@ public interface UserCache {
      * @param userId The user id to retrieve data.
      */
     Observable<UserEntity> get(final int userId);
+
 
     /**
      * Puts and element into the cache.

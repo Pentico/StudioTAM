@@ -1,24 +1,31 @@
-package com.pencorp.data.cache;
-
-import android.content.Context;
-
-import com.pencorp.data.cache.JsonSerializer.JsonSerializer;
-import com.pencorp.data.entity.SongEntity;
-import com.pencorp.data.exception.SongNotFoundException;
-import com.pencorp.domain.executor.ThreadExecutor;
-
-import java.io.File;
-
-import rx.Observable;
+package com.pencorp.data.cache.User;
 
 /**
  * Created by Tuane on 3/02/17.
  */
 
-public class SongCacheImpl implements SongCache {
+import android.content.Context;
 
+import com.pencorp.data.cache.FileManager;
+import com.pencorp.data.cache.JsonSerializer.JsonSerializer;
+import com.pencorp.data.entity.UserEntity;
+import com.pencorp.data.exception.UserNotFoundException;
+import com.pencorp.domain.executor.ThreadExecutor;
 
-    private static final String SETTINGS_FILE_NAME = "com.pencorp.SETTINGS";
+import java.io.File;
+
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
+import rx.Observable;
+
+/**
+ * {@link UserCache} implementation.
+ */
+@Singleton
+public class UserCacheImpl implements UserCache {
+
+    private static final String SETTINGS_FILE_NAME = "com.fernandocejas.android10.SETTINGS";
     private static final String SETTINGS_KEY_LAST_CACHE_UPDATE = "last_cache_update";
 
     private static final String DEFAULT_FILE_NAME = "user_";
@@ -31,73 +38,58 @@ public class SongCacheImpl implements SongCache {
     private final ThreadExecutor threadExecutor;
 
     /**
-     * Constructor of the class {@link SongCacheImpl}.
+     * Constructor of the class {@link UserCacheImpl}.
      *
      * @param context A
-     * @param serializer {@link JsonSerializer} for object serialization.
+     * @param userCacheSerializer {@link JsonSerializer} for object serialization.
      * @param fileManager {@link FileManager} for saving serialized objects to the file system.
      */
-    public SongCacheImpl(Context context, File cacheDir, JsonSerializer serializer,
-                         FileManager fileManager, ThreadExecutor threadExecutor) {
-        if (context == null || serializer == null || fileManager == null || threadExecutor == null) {
+    @Inject
+    public UserCacheImpl(Context context, JsonSerializer userCacheSerializer,
+                         FileManager fileManager, ThreadExecutor executor) {
+        if (context == null || userCacheSerializer == null || fileManager == null || executor == null) {
             throw new IllegalArgumentException("Invalid null parameter");
         }
-        this.context = context;
-        this.cacheDir = cacheDir;
-        this.serializer = serializer;
+        this.context = context.getApplicationContext();
+        this.cacheDir = this.context.getCacheDir();
+        this.serializer = userCacheSerializer;
         this.fileManager = fileManager;
-        this.threadExecutor = threadExecutor;
+        this.threadExecutor = executor;
     }
 
-    //TODO finish this one
-
-   /* @Override
-    public Observable<SongEntity> get(long songId) {
+    @Override public Observable<UserEntity> get(final int userId) {
         return Observable.create(subscriber -> {
-            File songEntityFile = SongCacheImpl.this.buildFile(songId);
-            String fileContent = SongCacheImpl.this.fileManager.readFileContent(songEntityFile);
-            SongEntity songEntity = SongCacheImpl.this.serializer.deserialize(fileContent);
+            File userEntityFile = UserCacheImpl.this.buildFile(userId);
+            String fileContent = UserCacheImpl.this.fileManager.readFileContent(userEntityFile);
+            UserEntity userEntity = UserCacheImpl.this.serializer.deserialize(fileContent);
 
-            if (songEntity != null) {
-                subscriber.onNext(songEntity);
+            if (userEntity != null) {
+                subscriber.onNext(userEntity);
                 subscriber.onCompleted();
             } else {
-                subscriber.onError(new SongNotFoundException());
+                subscriber.onError(new UserNotFoundException());
             }
         });
-    }*/
+    }
 
-   /* @Override
-    public void put(SongEntity songEntity) {
-        if (songEntity != null) {
-            File songEntityFile = this.buildFile(songEntity.getId());
-            if (!isCached(songEntity.getId())) {
-                String jsonString = this.serializer.serialize(songEntity);
-                this.executeAsynchronously(new CacheWriter(this.fileManager, songEntityFile,
+    @Override public void put(UserEntity userEntity) {
+        if (userEntity != null) {
+            File userEntityFile = this.buildFile(userEntity.getUserId());
+            if (!isCached(userEntity.getUserId())) {
+                String jsonString = this.serializer.serialize(userEntity);
+                this.executeAsynchronously(new CacheWriter(this.fileManager, userEntityFile,
                         jsonString));
                 setLastCacheUpdateTimeMillis();
             }
         }
-    }*/
-
-    @Override
-    public Observable<SongEntity> get(long songId) {
-        return null;
     }
 
-    @Override
-    public void put(SongEntity songEntity) {
-
+    @Override public boolean isCached(int userId) {
+        File userEntitiyFile = this.buildFile(userId);
+        return this.fileManager.exists(userEntitiyFile);
     }
 
-    @Override
-    public boolean isCached(long songId) {
-        File songEntitiyFile = this.buildFile(songId);
-        return this.fileManager.exists(songEntitiyFile);
-    }
-
-    @Override
-    public boolean isExpired() {
+    @Override public boolean isExpired() {
         long currentTime = System.currentTimeMillis();
         long lastUpdateTime = this.getLastCacheUpdateTimeMillis();
 
@@ -110,23 +102,22 @@ public class SongCacheImpl implements SongCache {
         return expired;
     }
 
-    @Override
-    public void evictAll() {
+    @Override public void evictAll() {
         this.executeAsynchronously(new CacheEvictor(this.fileManager, this.cacheDir));
     }
 
     /**
      * Build a file, used to be inserted in the disk cache.
      *
-     * @param songId The id song to build the file.
+     * @param userId The id user to build the file.
      * @return A valid file.
      */
-    private File buildFile(long songId) {
+    private File buildFile(int userId) {
         StringBuilder fileNameBuilder = new StringBuilder();
         fileNameBuilder.append(this.cacheDir.getPath());
         fileNameBuilder.append(File.separator);
         fileNameBuilder.append(DEFAULT_FILE_NAME);
-        fileNameBuilder.append(songId);
+        fileNameBuilder.append(userId);
 
         return new File(fileNameBuilder.toString());
     }

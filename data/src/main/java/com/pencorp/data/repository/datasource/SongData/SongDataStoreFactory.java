@@ -3,8 +3,7 @@ package com.pencorp.data.repository.datasource.SongData;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import com.pencorp.data.cache.SongCache;
-import com.pencorp.domain.Song;
+import com.pencorp.data.cache.Song.SongCache;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -49,5 +48,10 @@ public class SongDataStoreFactory {
      */
     public SongDataStore createCloudDataStore(){
         return null;
+    }
+
+    public SongDataStore createDiskDataStore() {
+
+        return new DiskSongDataStore()
     }
 }

@@ -27,7 +27,7 @@ public class JsonSerializer {
      *
      * @param userEntity {@link UserEntity} to serialize.
      */
-    public String serialize(UserEntity userEntity) {
+    public String serializeUser(UserEntity userEntity) {
         String jsonString = gson.toJson(userEntity, UserEntity.class);
         return jsonString;
     }
@@ -38,10 +38,29 @@ public class JsonSerializer {
      * @param jsonString A json string to deserialize.
      * @return {@link UserEntity}
      */
-    public UserEntity deserialize(String jsonString) {
+    public UserEntity deserializeUser(String jsonString) {
         UserEntity userEntity = gson.fromJson(jsonString, UserEntity.class);
         return userEntity;
     }
 
+    /**
+     * Serialize an object to Json.
+     *
+     * @param songEntity {@link SongEntity} to serialize.
+     */
+    public String serializeSong(SongEntity songEntity) {
+        String jsonString = gson.toJson(songEntity, SongEntity.class);
+        return jsonString;
+    }
 
+    /**
+     * Deserialize a json representation of an object.
+     *
+     * @param jsonString A json string to deserialize.
+     * @return {@link SongEntity}
+     */
+    public SongEntity deserializeSong(String jsonString) {
+        SongEntity songEntity = gson.fromJson(jsonString, SongEntity.class);
+        return songEntity;
+    }
 }

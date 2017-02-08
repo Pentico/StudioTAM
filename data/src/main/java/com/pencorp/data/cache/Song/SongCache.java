@@ -1,6 +1,9 @@
-package com.pencorp.data.cache;
+package com.pencorp.data.cache.Song;
 
 import com.pencorp.data.entity.SongEntity;
+import com.pencorp.domain.Song;
+
+import java.util.List;
 
 import rx.Observable;
 
@@ -18,7 +21,22 @@ public interface SongCache {
     Observable<SongEntity> get(final long songId);
 
     /**
-     * Puts and element into the cache.
+     * Get an {@link rx.Observable} which will emit a list of {@link SongEntity}
+     *
+     * @return  List of SongEntity
+     */
+    Observable<List<SongEntity>> get();
+
+    /**
+     * Puts  an ArrayList Element in the cache
+     *
+     * @param songEntityList Element to insert in the cache.
+     */
+    void put( List<SongEntity> songEntityList);
+
+
+    /**
+     * Puts an element into the cache.
      *
      * @param songEntity Element to insert in the cache.
      */
