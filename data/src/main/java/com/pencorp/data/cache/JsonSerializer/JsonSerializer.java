@@ -5,8 +5,12 @@ package com.pencorp.data.cache.JsonSerializer;
  */
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.pencorp.data.entity.SongEntity;
 import com.pencorp.data.entity.UserEntity;
+
+import java.lang.reflect.Type;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -62,5 +66,28 @@ public class JsonSerializer {
     public SongEntity deserializeSong(String jsonString) {
         SongEntity songEntity = gson.fromJson(jsonString, SongEntity.class);
         return songEntity;
+    }
+
+    /**
+     * Serialize an List to Json.
+     *
+     * @param songEntityList {@link SongEntity} to serialize.
+     */
+    public String serializeSongList(List<SongEntity> songEntityList) {
+        String jsonString = gson.toJson(songEntityList);
+        return jsonString;
+    }
+
+    /**
+     * Deserialize a json representation of an List.
+     *
+     * @param jsonString A json string to deserialize.
+     * @return {@link SongEntity}
+     */
+    public List<SongEntity> deserializeSongList(String jsonString)
+    {
+        Type CollectionType = new TypeToken<List<SongEntity>>(){}.getType();
+        List<SongEntity> songEntityList = gson.fromJson(jsonString, CollectionType);
+        return songEntityList;
     }
 }

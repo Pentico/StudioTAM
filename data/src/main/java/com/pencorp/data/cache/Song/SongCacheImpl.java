@@ -72,15 +72,31 @@ public class SongCacheImpl implements SongCache {
 
     @Override
     public Observable<List<SongEntity>> get() {
+        return Observable.create(subscriber -> {
+            File songEntityFile = SongCacheImpl.this.buildFile(1934);
+            String fileContent  = SongCacheImpl.this.fileManager.readFileContent(songEntityFile);
+            List<SongEntity> songEntityList = SongCacheImpl.this.serializer.deserializeSongList(fileContent);
 
-        ArrayList songEntityList = new ArrayList();
-        songEntityList
-        return null;
+            if(songEntityList != null) {
+                subscriber.onNext(songEntityList);
+                subscriber.onCompleted();
+            } else {
+                subscriber.onError(new SongNotFoundException("Song list returned NULL"));
+            }
+        });
     }
 
+    /**
+     *
+     * @param songEntityList Element to insert in the cache.
+     */
     @Override
     public void put(List<SongEntity> songEntityList) {
 
+        if(songEntityList != null){
+            File songEntityListFile = this.buildFile(1934); // Random number to build the file
+            String jsonString = this.serializer.serializeSongList(songEntityList);
+        }
     }
 
     @Override
