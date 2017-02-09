@@ -14,11 +14,11 @@ import rx.Observable;
 
 public class GetSong extends UseCase {
 
-    private final int songId;
+    private final long songId;
     private final SongRepository songRepository;
 
     @Inject
-    public GetSong(int songId, SongRepository songRepository,
+    public GetSong(long songId, SongRepository songRepository,
             ThreadExecutor threadExecutor, PostExecutionThread postExecutionThread) {
         super(threadExecutor, postExecutionThread);
         this.songId = songId;

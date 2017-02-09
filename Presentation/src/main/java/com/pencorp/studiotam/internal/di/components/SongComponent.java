@@ -8,7 +8,7 @@ import dagger.Component;
 
 /**
  * Created by Tuane on 9/02/17.
- * 
+ *
  */
 
 @PerActivity
@@ -16,4 +16,5 @@ import dagger.Component;
             modules = {ActivityModule.class,
                     SongModule.class})
 public interface SongComponent extends ActivityComponent {
+
 }
