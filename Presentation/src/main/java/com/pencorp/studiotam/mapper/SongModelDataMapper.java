@@ -21,5 +21,14 @@ public class SongModelDataMapper {
             throw new IllegalArgumentException("Cannot transform a null value");
         }
         SongModel songModel = new SongModel(song.getSongId());
+
+        songModel.setAlbum(song.getAlbum());
+        songModel.setYear(song.getYear());
+        songModel.setGenre(song.getGenre());
+        songModel.setArtist(song.getArtist());
+        songModel.setTitle(song.getTitle());
+        songModel.setTrack_no(song.getTrack_no());
+        songModel.setDuration_ms(song.getDuration_ms());
+        return songModel;
     }
 }
