@@ -40,6 +40,7 @@ ext {
             dagger:             "com.google.dagger:dagger:${daggerVersion}",
             butterKnife:        "com.jakewharton:butterknife:${butterKnifeVersion}",
             rxJava:             "io.reactivex:rxjava:${rxJavaVersion}",
+            recyclerView:       "com.android.support:recyclerview-v7:${recyclerViewVersion}",
             rxAndroid:          "io.reactivex:rxandroid:${rxAndroidVersion}",
             javaxAnnotation:    "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
     ]

@@ -75,6 +75,7 @@ dependencies {
     compile presentationDependencies.butterKnife
     compile presentationDependencies.rxJava
     compile presentationDependencies.rxAndroid
+    compile presentationDependencies.recyclerView
     provided presentationDependencies.javaxAnnotation
 
     androidTestCompile presentationTestDependencies.mockito
