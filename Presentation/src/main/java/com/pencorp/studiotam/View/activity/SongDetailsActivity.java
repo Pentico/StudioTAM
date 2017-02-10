@@ -12,6 +12,7 @@ public class SongDetailsActivity extends BaseActivity implements HasComponent<So
     private static final String INTENT_EXTRA_PARAM_SONG_ID = "org.studiotam.INTENT_PARAM_SONG_ID";
     private static final String INTENT_EXTRA_STATE_PARAM
 
+            // TODO finish top
     @Override
     public SongComponent getComponent() {
         return null;
