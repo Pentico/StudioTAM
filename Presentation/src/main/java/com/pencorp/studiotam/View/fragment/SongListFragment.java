@@ -104,7 +104,7 @@ public class SongListFragment extends BaseFragment implements SongListView {
     @Override
     public void viewSong(SongModel songModel) {
         if (this.songListListener != null) {
-            this.songListListener.onUserClicked(songModel);
+            this.songListListener.onSongClicked(songModel);
         }
     }
 
