@@ -3,7 +3,9 @@ package com.pencorp.studiotam.presenter;
 import android.support.annotation.NonNull;
 
 import com.fernandocejas.frodo.annotation.RxLogObservable;
+import com.fernandocejas.frodo.annotation.RxLogSubscriber;
 import com.pencorp.domain.Song;
+import com.pencorp.domain.exception.DefaultErrorBundle;
 import com.pencorp.domain.exception.ErrorBundle;
 import com.pencorp.domain.interactor.DefaultSubscriber;
 import com.pencorp.domain.interactor.UseCase;
@@ -80,6 +82,10 @@ public class SongDetailsPresenter implements Presenter {
         this.songDetailsView.showLoading();
     }
 
+    private void hideViewLoading() {
+        this.songDetailsView.hideLoading();
+    }
+
     private void hideViewRetry() {
         this.songDetailsView.hideRetry();
     }
@@ -104,12 +110,24 @@ public class SongDetailsPresenter implements Presenter {
         this.getSongDetailsUseCase.execute(new SongDetailsSubscriber());
     }
 
-    @RxLogObservable
+    @RxLogSubscriber
     private final class SongDetailsSubscriber extends DefaultSubscriber<Song> {
 
         @Override
         public void onCompleted() {
+            SongDetailsPresenter.this.hideViewLoading();
+        }
 
+        @Override
+        public void onError(Throwable e) {
+            SongDetailsPresenter.this.hideViewLoading();
+            SongDetailsPresenter.this.showErrorMessage(new DefaultErrorBundle((Exception ) e));
+            SongDetailsPresenter.this.showViewRetry();
+        }
+
+        @Override
+        public void onNext(Song song) {
+            SongDetailsPresenter.this.showSongDetailsInView(song);
         }
     }
 }
