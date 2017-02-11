@@ -2,10 +2,16 @@ package com.pencorp.studiotam.presenter;
 
 import android.support.annotation.NonNull;
 
+import com.fernandocejas.frodo.annotation.RxLogObservable;
+import com.pencorp.domain.Song;
+import com.pencorp.domain.exception.ErrorBundle;
+import com.pencorp.domain.interactor.DefaultSubscriber;
 import com.pencorp.domain.interactor.UseCase;
 import com.pencorp.studiotam.View.SongDetailsView;
+import com.pencorp.studiotam.exception.ErrorMessageFactory;
 import com.pencorp.studiotam.internal.di.PerActivity;
 import com.pencorp.studiotam.mapper.SongModelDataMapper;
+import com.pencorp.studiotam.model.SongModel;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -70,5 +76,36 @@ public class SongDetailsPresenter implements Presenter {
         this.getSongDetails();
     }
 
-    
+    private void showViewLoading() {
+        this.songDetailsView.showLoading();
+    }
+
+    private void hideViewRetry() {
+        this.songDetailsView.hideRetry();
+    }
+
+    private void showViewRetry() {
+        this.songDetailsView.showRetry();
+    }
+
+    private void showErrorMessage(ErrorBundle errorBundle) {
+        String errorMessage = ErrorMessageFactory.create(
+                this.songDetailsView.context(), errorBundle.getException()
+        );
+        this.songDetailsView.showError(errorMessage);
+    }
+
+    private void showSongDetailsInView(Song song) {
+        final SongModel songModel = this.songModelDataMapper.transform(song);
+        this.songDetailsView.renderSong(songModel);
+    }
+
+    private void getSongDetails() {
+        this.getSongDetailsUseCase.execute(new SongDetailsSubscriber());
+    }
+
+    @RxLogObservable
+    private final class SongDetailsSubscriber extends DefaultSubscriber<Song> {
+        
+    }
 }
