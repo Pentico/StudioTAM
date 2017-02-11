@@ -28,4 +28,5 @@
         android:singleLine="true"
         android:ellipsize="end"
         />
+
 </LinearLayout>
