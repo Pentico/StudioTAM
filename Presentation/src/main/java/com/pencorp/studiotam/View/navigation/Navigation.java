@@ -37,6 +37,12 @@ public class Navigation {
         }
     }
 
+    /**
+     * Goes to the song details screen.
+     *
+     * @param context A Context needed to open the destiny activity.
+     * @param songId
+     */
     public void navigateToSongDetails(Context context, long songId) {
         if (context != null) {
             Intent intentToLaunch = SongDetailsActivity.getCallingIntent(context, songId);

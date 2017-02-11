@@ -42,7 +42,7 @@ public class SongsAdapter extends RecyclerView.Adapter<SongsAdapter.SongViewHold
         this.songsCollection = Collections.emptyList();
     }
 
-    public interface onItemClickListener {
+    public interface OnItemClickListener {
         void onSongItemClicked(SongModel songModel);
     }
     @Override

@@ -21,11 +21,11 @@ public class SongDetailsActivity extends BaseActivity implements HasComponent<So
 
     private static final String INTENT_EXTRA_PARAM_SONG_ID = "org.studiotam.INTENT_PARAM_SONG_ID";
     private static final String INSTANCE_STATE_PARAM_SONG_ID = "org.studiota.INTENT_PARAM_SONG_ID";
-    private int songId;
+    private long songId;
     private SongComponent songComponent;
 
 
-    public  static Intent getCallingIntent(Context context, int songId) {
+    public  static Intent getCallingIntent(Context context, long songId) {
         Intent callingIntent = new Intent(context, SongDetailsActivity.class);
         callingIntent.putExtra(INTENT_EXTRA_PARAM_SONG_ID, songId);
         return callingIntent;
