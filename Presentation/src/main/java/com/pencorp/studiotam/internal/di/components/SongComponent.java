@@ -1,5 +1,7 @@
 package com.pencorp.studiotam.internal.di.components;
 
+import com.pencorp.studiotam.View.fragment.SongDetailsFragment;
+import com.pencorp.studiotam.View.fragment.SongListFragment;
 import com.pencorp.studiotam.internal.di.PerActivity;
 import com.pencorp.studiotam.internal.di.modules.ActivityModule;
 import com.pencorp.studiotam.internal.di.modules.SongModule;
@@ -16,5 +18,6 @@ import dagger.Component;
             modules = {ActivityModule.class,
                     SongModule.class})
 public interface SongComponent extends ActivityComponent {
-
+    void inject(SongListFragment songListFragment);
+    void inject(SongDetailsFragment songDetailsFragment);
 }

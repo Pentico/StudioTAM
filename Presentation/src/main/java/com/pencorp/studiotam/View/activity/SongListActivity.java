@@ -44,7 +44,7 @@ public class SongListActivity extends BaseActivity implements HasComponent<SongC
     }
 
     private void initializeInjector() {
-        this.songComponent = DaggerUserComponent.builder()
+        this.songComponent = DaggerSongComponent.builder()
                 .applicationComponent(getApplicationComponent())
                 .activityModule(getActivityModule())
                 .build();
