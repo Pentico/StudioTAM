@@ -61,7 +61,7 @@ public class UserCacheImpl implements UserCache {
         return Observable.create(subscriber -> {
             File userEntityFile = UserCacheImpl.this.buildFile(userId);
             String fileContent = UserCacheImpl.this.fileManager.readFileContent(userEntityFile);
-            UserEntity userEntity = UserCacheImpl.this.serializer.deserialize(fileContent);
+            UserEntity userEntity = UserCacheImpl.this.serializer.deserializeUser(fileContent);
 
             if (userEntity != null) {
                 subscriber.onNext(userEntity);
@@ -76,7 +76,7 @@ public class UserCacheImpl implements UserCache {
         if (userEntity != null) {
             File userEntityFile = this.buildFile(userEntity.getUserId());
             if (!isCached(userEntity.getUserId())) {
-                String jsonString = this.serializer.serialize(userEntity);
+                String jsonString = this.serializer.serializeUser(userEntity);
                 this.executeAsynchronously(new CacheWriter(this.fileManager, userEntityFile,
                         jsonString));
                 setLastCacheUpdateTimeMillis();

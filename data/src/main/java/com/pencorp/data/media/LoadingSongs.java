@@ -10,6 +10,7 @@ import com.pencorp.data.entity.SongEntity;
 import com.pencorp.domain.Song;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -24,9 +25,9 @@ public class LoadingSongs {
      * This is going to take time ....
      *  TODO Make this functions return any type of Response or (format ) mas tarder
      *  */
-    public List scanSongs(Context c){
+    public List <SongEntity> scanSongs(Context c){
 
-        ArrayList<SongEntity> SongsList = new ArrayList<>();
+        List<SongEntity> SongsList = new ArrayList<>();
         String fromWhere = "internal";  // where we scanning for song might change it later
 
            Uri musicUri = ((fromWhere == "internal") ?

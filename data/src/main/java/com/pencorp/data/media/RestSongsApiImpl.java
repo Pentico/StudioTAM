@@ -9,6 +9,8 @@ import com.pencorp.data.entity.SongEntity;
 import com.pencorp.data.entity.mapper.SongEntityDataMapper;
 import com.pencorp.data.exception.SongNotFoundException;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import rx.Observable;
@@ -43,12 +45,10 @@ public class RestSongsApiImpl implements RestSongsApi {
     public Observable<List<SongEntity>> userEntityList() {
 
         return Observable.create(subscriber -> {
-            if(!ifNotScannedSongs()){
-                subscriber.onNext(loadingSongs.scanSongs(context));
+            List repsonse = GetSongs();
+                subscriber.onNext(repsonse);
                 subscriber.onCompleted();
-            }else{
-                subscriber.onError(new SongNotFoundException("Already Scanned Songs"));
-            }
+
         });
     }
 
@@ -78,4 +78,9 @@ public class RestSongsApiImpl implements RestSongsApi {
 
         return false;
     }
+
+    private List<SongEntity>   GetSongs() {
+        return loadingSongs.scanSongs(context);
+    }
+
 }

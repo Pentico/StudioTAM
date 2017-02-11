@@ -4,6 +4,9 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 
 import com.pencorp.data.cache.Song.SongCache;
+import com.pencorp.data.entity.mapper.SongEntityDataMapper;
+import com.pencorp.data.media.LoadingSongs;
+import com.pencorp.data.media.RestSongsApiImpl;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -50,11 +53,23 @@ public class SongDataStoreFactory {
         return null;
     }
 
+//    public SongDataStore createLocalDataStore(){
+//        LoadingSongs loadingSongs = new LoadingSongs();
+//        SongEntityDataMapper songEntityDataMapper = new SongEntityDataMapper();
+//        RestSongsApiImpl restSongsApi = new RestSongsApiImpl(context, songEntityDataMapper, loadingSongs);
+//
+//        return new
+//    }
     /**
      * Get a list of all songs on the cached
      * @return
      */
-    public SongDataStore createDiskDataStore() {
-        return new DiskSongDataStore(songCache);
+    public SongDataStore createDiskDataStore()
+    {
+        LoadingSongs loadingSongs = new LoadingSongs();
+        SongEntityDataMapper songEntityDataMapper = new SongEntityDataMapper();
+        RestSongsApiImpl restSongsApi = new RestSongsApiImpl(context, songEntityDataMapper, loadingSongs);
+
+        return new DiskSongDataStore(songCache , restSongsApi);
     }
 }

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Window;
 
 import com.pencorp.studiotam.R;
+import com.pencorp.studiotam.View.fragment.SongDetailsFragment;
 import com.pencorp.studiotam.internal.di.HasComponent;
 import com.pencorp.studiotam.internal.di.components.SongComponent;
 import com.pencorp.studiotam.internal.di.modules.SongModule;
@@ -47,7 +48,7 @@ public class SongDetailsActivity extends BaseActivity implements HasComponent<So
     private void initializeActivity(Bundle savedInstanceState) {
         if(savedInstanceState == null) {
             this.songId = getIntent().getIntExtra(INTENT_EXTRA_PARAM_SONG_ID, -1);
-            addFragment(R.id.fragmentContainer, new SongDetailsActivity());
+            addFragment(R.id.fragmentContainer, new SongDetailsFragment());
         }else {
             this.songId = savedInstanceState.getInt(INSTANCE_STATE_PARAM_SONG_ID);
         }
