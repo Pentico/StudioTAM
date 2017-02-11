@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.pencorp.studiotam.R;
 import com.pencorp.studiotam.View.SongDetailsView;
@@ -14,6 +17,7 @@ import com.pencorp.studiotam.presenter.SongDetailsPresenter;
 
 import javax.inject.Inject;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
@@ -28,8 +32,39 @@ public class SongDetailsFragment extends BaseFragment implements SongDetailsView
     @Inject
     SongDetailsPresenter songDetailsPresenter;
 
+    @Bind(R.id.tv_title)
+    TextView tv_title;
+    @Bind(R.id.tv_artist)
+    TextView tv_artist;
+    @Bind(R.id.tv_album)
+    TextView tv_album;
+    @Bind(R.id.rl_progress)
+    RelativeLayout rl_progress;
+    @Bind(R.id.rl_retry)
+    RelativeLayout rl_retry;
+    @Bind(R.id.bt_retry)
+    Button bt_retry;
+
     public SongDetailsFragment() {
         setRetainInstance(true);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        this.songDetailsPresenter.resume();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        this.songDetailsPresenter.pause();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        this.songDetailsPresenter.destroy();
     }
 
     @Override
@@ -58,21 +93,28 @@ public class SongDetailsFragment extends BaseFragment implements SongDetailsView
     @Override
     public void renderSong(SongModel song) {
 
+        if(song != null) {
+            this.tv_album.setText(song.getAlbum());
+            this.tv_artist.setText(song.getArtist());
+            this.tv_title.setText(song.getTitle());
+        }
     }
 
     @Override
     public void showLoading() {
-
+        this.rl_progress.setVisibility(View.VISIBLE);
+        this.getActivity().setProgressBarIndeterminateVisibility(true);
     }
 
     @Override
     public void hideLoading() {
-
+        this.rl_progress.setVisibility(View.GONE);
+        this.getActivity().setProgressBarIndeterminateVisibility(false);
     }
 
     @Override
     public void showRetry() {
-
+        this.rl_retry.setVisibility(View.VISIBLE);
     }
 
     @Override
