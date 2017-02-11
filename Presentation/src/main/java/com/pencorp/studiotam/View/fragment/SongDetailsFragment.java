@@ -19,6 +19,7 @@ import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by Tuane on 11/02/17.
@@ -119,16 +120,30 @@ public class SongDetailsFragment extends BaseFragment implements SongDetailsView
 
     @Override
     public void hideRetry() {
-
+        this.rl_retry.setVisibility(View.GONE);
     }
 
     @Override
     public void showError(String message) {
-
+        this.showToastMessage(message);
     }
 
     @Override
     public Context context() {
-        return null;
+        return getActivity().getApplicationContext();
+    }
+
+    /**
+     * Loads all Songs
+     */
+    private void loadSongDetails() {
+        if(this.songDetailsPresenter != null) {
+            this.songDetailsPresenter.initailize();
+        }
+    }
+
+    @OnClick(R.id.bt_retry)
+    void onButtonRetryClick() {
+        SongDetailsFragment.this.loadSongDetails();
     }
 }
