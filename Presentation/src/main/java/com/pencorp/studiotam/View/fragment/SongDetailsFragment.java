@@ -138,7 +138,7 @@ public class SongDetailsFragment extends BaseFragment implements SongDetailsView
      */
     private void loadSongDetails() {
         if(this.songDetailsPresenter != null) {
-            this.songDetailsPresenter.initailize();
+            this.songDetailsPresenter.initialize();
         }
     }
 
