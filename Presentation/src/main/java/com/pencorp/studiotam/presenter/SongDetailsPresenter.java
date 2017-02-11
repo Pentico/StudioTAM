@@ -106,6 +106,10 @@ public class SongDetailsPresenter implements Presenter {
 
     @RxLogObservable
     private final class SongDetailsSubscriber extends DefaultSubscriber<Song> {
-        
+
+        @Override
+        public void onCompleted() {
+
+        }
     }
 }
