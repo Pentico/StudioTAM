@@ -52,6 +52,7 @@ public class SongListActivity extends BaseActivity implements HasComponent<SongC
 
     @Override
     public void onSongClicked(SongModel songModel) {
-        this.navigation.navigateToSongDetails(this, SongModel.getSongId());
+        this.navigation.navigateToSongDetails(this, songModel.getSongId());
     }
-    }
+
+}

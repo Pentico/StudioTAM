@@ -30,6 +30,9 @@ import butterknife.OnClick;
  * Created by Tuane on 11/02/17.
  */
 
+/**
+ * Fragment that shows a list of Songs.
+ */
 public class SongListFragment extends BaseFragment implements SongListView {
 
     private SongListListener songListListener;
@@ -88,7 +91,7 @@ public class SongListFragment extends BaseFragment implements SongListView {
      * Interface for listening user list events.
      */
     public interface SongListListener {
-        void onUserClicked(final SongModel userModel);
+        void onSongClicked(final SongModel userModel);
     }
 
     @Override

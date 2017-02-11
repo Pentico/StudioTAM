@@ -21,6 +21,7 @@ import javax.inject.Inject;
  * this application.
  */
 public abstract class BaseActivity extends Activity {
+
     @Inject
     Navigation navigation;
 
