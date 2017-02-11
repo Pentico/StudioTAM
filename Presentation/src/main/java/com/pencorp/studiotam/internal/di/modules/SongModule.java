@@ -20,7 +20,7 @@ import dagger.Provides;
 @Module
 public class SongModule {
 
-    private long songId;
+    private long songId = -1;
     public SongModule() {}
 
     public SongModule(long songId) {

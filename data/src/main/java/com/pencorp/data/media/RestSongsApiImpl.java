@@ -45,7 +45,7 @@ public class RestSongsApiImpl implements RestSongsApi {
     public Observable<List<SongEntity>> userEntityList() {
 
         return Observable.create(subscriber -> {
-            List repsonse = GetSongs();
+            List<SongEntity> repsonse = GetSongs();
                 subscriber.onNext(repsonse);
                 subscriber.onCompleted();
 

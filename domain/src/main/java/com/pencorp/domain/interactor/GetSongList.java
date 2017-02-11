@@ -4,6 +4,8 @@ import com.pencorp.domain.executor.PostExecutionThread;
 import com.pencorp.domain.executor.ThreadExecutor;
 import com.pencorp.domain.repository.SongRepository;
 
+import javax.inject.Inject;
+
 import rx.Observable;
 
 /**
@@ -14,6 +16,7 @@ public class GetSongList extends UseCase {
 
     private final SongRepository songRepository;
 
+    @Inject
     protected GetSongList(ThreadExecutor threadExecutor,
                           PostExecutionThread postExecutionThread, SongRepository songRepository) {
         super(threadExecutor, postExecutionThread);

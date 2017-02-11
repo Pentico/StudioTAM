@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.pencorp.domain.executor.PostExecutionThread;
 import com.pencorp.domain.executor.ThreadExecutor;
+import com.pencorp.domain.repository.SongRepository;
 import com.pencorp.studiotam.View.activity.BaseActivity;
 import com.pencorp.studiotam.internal.di.modules.ApplicationModule;
 
@@ -24,4 +25,5 @@ public interface ApplicationComponent {
     ThreadExecutor threadExecutor();
     PostExecutionThread postExecutionThread();
     /*UserRepository userRepository();*/
+    SongRepository songRepository();
 }

@@ -2,9 +2,13 @@ package com.pencorp.studiotam.internal.di.modules;
 
 import android.content.Context;
 
+import com.pencorp.data.cache.Song.SongCache;
+import com.pencorp.data.cache.Song.SongCacheImpl;
 import com.pencorp.data.executor.JobExecutor;
+import com.pencorp.data.repository.SongDataRepository;
 import com.pencorp.domain.executor.PostExecutionThread;
 import com.pencorp.domain.executor.ThreadExecutor;
+import com.pencorp.domain.repository.SongRepository;
 import com.pencorp.studiotam.AndroidApplication;
 import com.pencorp.studiotam.UIThread;
 
@@ -48,4 +52,16 @@ public class ApplicationModule {
     @Provides @Singleton UserRepository provideUserRepository(UserDataRepository userDataRepository) {
         return userDataRepository;
     }*/
+
+    @Provides
+    @Singleton
+    SongCache provideSongCahce(SongCacheImpl songCache) {
+        return songCache;
+    }
+
+    @Provides
+    @Singleton
+    SongRepository provideSongRepository(SongDataRepository songDataRepository){
+        return songDataRepository;
+    }
 }
