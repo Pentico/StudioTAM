@@ -8,6 +8,7 @@ import android.view.Window;
 import com.pencorp.studiotam.R;
 import com.pencorp.studiotam.View.fragment.SongDetailsFragment;
 import com.pencorp.studiotam.internal.di.HasComponent;
+import com.pencorp.studiotam.internal.di.components.DaggerSongComponent;
 import com.pencorp.studiotam.internal.di.components.SongComponent;
 import com.pencorp.studiotam.internal.di.modules.SongModule;
 
@@ -58,7 +59,7 @@ public class SongDetailsActivity extends BaseActivity implements HasComponent<So
         this.songComponent = DaggerSongComponent.builder()
                 .applicationComponent(getApplicationComponent())
                 .activityModule(getActivityModule())
-                .userModule(new SongModule(this.songId))
+                .songModule(new SongModule(this.songId))
                 .build();
     }
 

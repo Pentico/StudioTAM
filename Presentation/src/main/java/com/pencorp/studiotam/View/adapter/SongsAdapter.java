@@ -59,7 +59,7 @@ public class SongsAdapter extends RecyclerView.Adapter<SongsAdapter.SongViewHold
             @Override
             public void onClick(View view) {
                 if(SongsAdapter.this.onItemClickListener != null){
-                    SongsAdapter.this.onItemClickListener.onSongItemCliked(songModel);
+                    SongsAdapter.this.onItemClickListener.onSongItemClicked(songModel);
                 }
             }
         });

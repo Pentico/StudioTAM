@@ -28,7 +28,7 @@ public abstract class BaseActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.getApplicationContext().inject(this);
+        this.getApplicationComponent().inject(this);
     }
 
     /**

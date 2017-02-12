@@ -12,12 +12,15 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import rx.Observable;
 
 /**
  * Created by Tuane on 3/02/17.
  */
-
+@Singleton
 public class SongCacheImpl implements SongCache {
 
 
@@ -40,13 +43,14 @@ public class SongCacheImpl implements SongCache {
      * @param serializer {@link JsonSerializer} for object serialization.
      * @param fileManager {@link FileManager} for saving serialized objects to the file system.
      */
-    public SongCacheImpl(Context context, File cacheDir, JsonSerializer serializer,
+    @Inject
+    public SongCacheImpl(Context context, JsonSerializer serializer,
                          FileManager fileManager, ThreadExecutor threadExecutor) {
         if (context == null || serializer == null || fileManager == null || threadExecutor == null) {
             throw new IllegalArgumentException("Invalid null parameter");
         }
         this.context = context;
-        this.cacheDir = cacheDir;
+        this.cacheDir = this.context.getCacheDir();
         this.serializer = serializer;
         this.fileManager = fileManager;
         this.threadExecutor = threadExecutor;

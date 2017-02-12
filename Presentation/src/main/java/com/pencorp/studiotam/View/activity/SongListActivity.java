@@ -8,6 +8,7 @@ import android.view.Window;
 import com.pencorp.studiotam.R;
 import com.pencorp.studiotam.View.fragment.SongListFragment;
 import com.pencorp.studiotam.internal.di.HasComponent;
+import com.pencorp.studiotam.internal.di.components.DaggerSongComponent;
 import com.pencorp.studiotam.internal.di.components.SongComponent;
 import com.pencorp.studiotam.internal.di.components.UserComponent;
 import com.pencorp.studiotam.model.SongModel;
@@ -44,7 +45,8 @@ public class SongListActivity extends BaseActivity implements HasComponent<SongC
     }
 
     private void initializeInjector() {
-        this.songComponent = DaggerSongComponent.builder()
+        this.songComponent =
+                DaggerSongComponent.builder()
                 .applicationComponent(getApplicationComponent())
                 .activityModule(getActivityModule())
                 .build();
