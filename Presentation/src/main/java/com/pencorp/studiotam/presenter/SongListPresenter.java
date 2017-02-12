@@ -106,17 +106,20 @@ public class SongListPresenter implements Presenter {
 
     private final class SongListSubscriber extends DefaultSubscriber<List<Song>> {
 
-        @Override public void onCompleted() {
+        @Override
+        public void onCompleted() {
             SongListPresenter.this.hideViewLoading();
         }
 
-        @Override public void onError(Throwable e) {
+        @Override
+        public void onError(Throwable e) {
             SongListPresenter.this.hideViewLoading();
             SongListPresenter.this.showErrorMessage(new DefaultErrorBundle((Exception) e));
             SongListPresenter.this.showViewRetry();
         }
 
-        @Override public void onNext(List<Song> songs) {
+        @Override
+        public void onNext(List<Song> songs) {
             SongListPresenter.this.showSongCollectionInView(songs);
         }
     }
