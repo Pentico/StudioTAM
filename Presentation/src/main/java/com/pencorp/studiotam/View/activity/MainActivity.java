@@ -8,6 +8,7 @@ import com.pencorp.studiotam.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 
 public class MainActivity extends BaseActivity {
@@ -25,7 +26,8 @@ public class MainActivity extends BaseActivity {
     /**
      * Goes to the song list screen
      */
+    @OnClick(R.id.btn_LoadData)
     void navigateToSongList(){
-
+        this.navigation.navigatetToSongList(this);
     }
 }
