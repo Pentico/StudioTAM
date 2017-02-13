@@ -7,6 +7,10 @@ import com.pencorp.domain.Song;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -48,6 +52,22 @@ public class SongEntityDataMapperTest extends ApplicationTestCase {
         assertThat(song.getDuration_ms(), is(FAKE_DURATION_MS));
         assertThat(song.getYear(), is(FAKE_YEAR));
         assertThat(song.getTrack_no(), is(FAKE_TRACK_NO));
+    }
+    
+    @Test
+    public void testTransformSongEntityCollection() {
+        SongEntity mockSongEntityOne = mock(SongEntity.class);
+        SongEntity mockSongEntityTwo = mock(SongEntity.class);
+
+        List<SongEntity> songEntityList = new ArrayList<>(5);
+        songEntityList.add(mockSongEntityOne);
+        songEntityList.add(mockSongEntityTwo);
+
+        Collection<Song> songCollection = songEntityDataMapper.transform(songEntityList);
+
+        assertThat(songCollection.toArray()[0], is(instanceOf(Song.class)));
+        assertThat(songCollection.toArray()[1], is(instanceOf(Song.class)));
+        assertThat(songCollection.size(), is(2));
     }
 
     private SongEntity createFakeSongEntity() {
