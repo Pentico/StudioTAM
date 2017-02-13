@@ -36,6 +36,8 @@ public class SongEntityDataMapper {
             song.setAlbum(songEntity.getAlbum());
             song.setTrack_no(songEntity.getTrack_no());
             song.setDuration_ms(songEntity.getDuration_ms());
+            song.setTitle(songEntity.getTitle());
+            song.setGenre(songEntity.getGenre());
 
         }
 
