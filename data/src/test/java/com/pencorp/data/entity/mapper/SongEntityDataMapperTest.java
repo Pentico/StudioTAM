@@ -53,7 +53,7 @@ public class SongEntityDataMapperTest extends ApplicationTestCase {
         assertThat(song.getYear(), is(FAKE_YEAR));
         assertThat(song.getTrack_no(), is(FAKE_TRACK_NO));
     }
-    
+
     @Test
     public void testTransformSongEntityCollection() {
         SongEntity mockSongEntityOne = mock(SongEntity.class);
