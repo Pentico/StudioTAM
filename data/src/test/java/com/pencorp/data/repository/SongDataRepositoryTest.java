@@ -69,4 +69,14 @@ public class SongDataRepositoryTest extends ApplicationTestCase {
         verify(mockSongDataStoreFactory).createDiskDataStore();
         verify(mockSongDataStore).songEntityList();
     }
+
+    @Test
+    public void testGetSongHappyCase() {
+        SongEntity songEntity = new SongEntity();
+        given(mockSongDataStore.songEntityDetails(FAKE_SONG_ID)).willReturn(Observable.just(songEntity));
+        songDataRepository.song(FAKE_SONG_ID);
+
+        verify(mockSongDataStoreFactory).create(FAKE_SONG_ID);
+        verify(mockSongDataStore).songEntityDetails(FAKE_SONG_ID);
+    }
 }
