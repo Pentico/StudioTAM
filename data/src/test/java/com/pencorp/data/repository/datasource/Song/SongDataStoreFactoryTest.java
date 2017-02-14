@@ -55,13 +55,13 @@ public class SongDataStoreFactoryTest extends ApplicationTestCase {
 
     @Test
     public void testCreateDiskDataStore2() {
-//        given(mockSongCache.isExpired()).willReturn(true);
-//        given(mockSongCache.isCached(FAKE_SONG_ID)).willReturn(false);
-//
-//        SongDataStore songDataStore = songDataStoreFactory.create(FAKE_SONG_ID);
-//
-//        assertThat(songDataStore, is(notNullValue()));
-//        assertThat(songDataStore, is(instanceOf()))
+        /*given(mockSongCache.isExpired()).willReturn(true);
+        given(mockSongCache.isCached(FAKE_SONG_ID)).willReturn(false);
+
+        SongDataStore songDataStore = songDataStoreFactory.create(FAKE_SONG_ID);
+
+        assertThat(songDataStore, is(notNullValue()));
+        assertThat(songDataStore, is(instanceOf()))*/
 
     }
 }
