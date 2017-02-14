@@ -9,12 +9,19 @@ import com.pencorp.domain.Song;
 
 import org.junit.Before;
 import org.junit.Rule;
+import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import rx.Observable;
+
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Matchers.anyInt;
+import static org.mockito.Mockito.verify;
 
 /**
  * Created by Tuane on 9/02/17.
@@ -51,5 +58,15 @@ public class SongDataRepositoryTest extends ApplicationTestCase {
 
     }
 
+    @Test
+    public void testGetSongsHappyCase() {
+        List<SongEntity> songEntityList = new ArrayList<>();
+        songEntityList.add(new SongEntity());
+        given(mockSongDataStore.songEntityList()).willReturn(Observable.just(songEntityList));
 
+        songDataRepository.songs();
+
+        verify(mockSongDataStoreFactory).createDiskDataStore();
+        verify(mockSongDataStore).songEntityList();
+    }
 }
