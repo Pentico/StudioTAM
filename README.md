@@ -1,6 +1,6 @@
 # [StudioTAM]
 
-I was tired of using other peoples anroid music player, I made one that works to my liking 
+I was tired of using other peoples android music player, I made one that works to my liking 
 
 ## Getting Started
 
