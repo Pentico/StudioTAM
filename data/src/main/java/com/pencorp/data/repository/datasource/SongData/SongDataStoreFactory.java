@@ -32,14 +32,13 @@ public class SongDataStoreFactory {
      */
     public SongDataStore create(long songId) {
         SongDataStore songDataStore;
-        songDataStore = new DiskSongDataStore(this.songCache);
 
         // TODO impliment CloudDataStore().
-       /* if (!this.userCache.isExpired() && this.userCache.isCached(userId)) {
-            userDataStore = new DiskUserDataStore(this.userCache);
+        if (!this.songCache.isExpired() && this.songCache.isCached(songId)) {
+            songDataStore = new DiskSongDataStore(this.songCache);
         } else {
-            userDataStore = createCloudDataStore();
-        }*/
+            songDataStore = createDiskDataStore();
+        }
 
         return songDataStore;
     }
