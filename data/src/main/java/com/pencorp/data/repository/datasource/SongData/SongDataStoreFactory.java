@@ -35,7 +35,7 @@ public class SongDataStoreFactory {
 
         // TODO impliment CloudDataStore().
         if (!this.songCache.isExpired() && this.songCache.isCached(songId)) {
-            songDataStore = new DiskSongDataStore(this.songCache);
+            songDataStore = new DiskSongDataStore(this.songCache, null);
         } else {
             songDataStore = createDiskDataStore();
         }

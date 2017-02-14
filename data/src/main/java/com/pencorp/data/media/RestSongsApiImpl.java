@@ -42,7 +42,7 @@ public class RestSongsApiImpl implements RestSongsApi {
 
     @RxLogObservable
     @Override
-    public Observable<List<SongEntity>> userEntityList() {
+    public Observable<List<SongEntity>> songEntityList() {
 
         return Observable.create(subscriber -> {
             List<SongEntity> repsonse = GetSongs();

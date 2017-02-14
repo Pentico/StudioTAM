@@ -6,6 +6,7 @@ package com.pencorp.data.repository.datasource.SongData;
 
 import com.pencorp.data.cache.Song.SongCache;
 import com.pencorp.data.entity.SongEntity;
+import com.pencorp.data.media.RestSongsApi;
 import com.pencorp.data.media.RestSongsApiImpl;
 
 import java.util.List;
@@ -19,7 +20,7 @@ import rx.functions.Action1;
 public class DiskSongDataStore implements SongDataStore {
 
     private final SongCache songCache;
-    private  RestSongsApiImpl restSongsApi;
+    private  final RestSongsApi restSongsApi;
 
     /**
      * Construct a {@link SongDataStore} based file system data store.
@@ -27,18 +28,15 @@ public class DiskSongDataStore implements SongDataStore {
      * @param songCache A {@link SongCache} to cache data retrieved from the api.
      * @param restSongsApi
      */
-    public DiskSongDataStore(SongCache songCache, RestSongsApiImpl restSongsApi) {
+    public DiskSongDataStore(SongCache songCache, RestSongsApi restSongsApi) {
         this.songCache = songCache;
         this.restSongsApi = restSongsApi;
     }
 
-    public DiskSongDataStore(SongCache songCache) {
-        this.songCache = songCache;
-    }
 
     @Override
     public Observable<List<SongEntity>> songEntityList() {
-       return this.restSongsApi.userEntityList();
+       return this.restSongsApi.songEntityList().doOnNext(savetoCacheAction);
     }
 
     @Override
@@ -49,6 +47,12 @@ public class DiskSongDataStore implements SongDataStore {
     private final Action1<SongEntity> saveToCacheAction = songEntity -> {
         if( songEntity != null){
             DiskSongDataStore.this.songCache.put(songEntity);
+        }
+    };
+
+    private final Action1<List<SongEntity>> savetoCacheAction = songEntityList -> {
+        if( songEntityList != null) {
+            DiskSongDataStore.this.songCache.put(songEntityList);
         }
     };
 

@@ -2,6 +2,8 @@ package com.pencorp.data.repository.datasource.Song;
 
 import com.pencorp.data.ApplicationTestCase;
 import com.pencorp.data.cache.Song.SongCache;
+import com.pencorp.data.media.RestSongsApi;
+import com.pencorp.data.media.RestSongsApiImpl;
 import com.pencorp.data.repository.datasource.SongData.DiskSongDataStore;
 
 import org.junit.Before;
@@ -23,8 +25,13 @@ public class DiskSongDataStoreTest extends ApplicationTestCase {
 
     private DiskSongDataStore diskSongDataStore;
 
+    private DiskSongDataStore diskSongDataStore1;
+
     @Mock
     private SongCache mockSongCache;
+
+    @Mock
+    private RestSongsApiImpl mockRestSongsApi;
 
     @Rule
     public ExpectedException expectedException = ExpectedException.none();
@@ -32,7 +39,8 @@ public class DiskSongDataStoreTest extends ApplicationTestCase {
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        diskSongDataStore = new DiskSongDataStore(mockSongCache);
+        diskSongDataStore = new DiskSongDataStore(mockSongCache, null);
+        diskSongDataStore1 = new DiskSongDataStore(mockSongCache, mockRestSongsApi);
     }
 
     /**
@@ -50,5 +58,9 @@ public class DiskSongDataStoreTest extends ApplicationTestCase {
         verify(mockSongCache).get(FAKE_SONG_ID);
     }
 
-    
+    @Test
+    public void testGetSongEntityListFromCache() {
+        diskSongDataStore.songEntityList();
+        verify(mockSongCache).get();
+    }
 }

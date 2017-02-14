@@ -19,5 +19,10 @@ public interface RestSongsApi {
     /**
      * Retrieves an {@link rx.Observable} which will emit a List of {@link SongEntity}.
      */
-    Observable<List<SongEntity>> userEntityList();
+    Observable<List<SongEntity>> songEntityList();
+
+//    /**
+//     * Retrieves an {@link rx.Observable} which will emit a List of {@link SongEntity}.
+//     */
+//    Observable<SongEntity> songEntity();
 }
