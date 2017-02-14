@@ -11,6 +11,8 @@ import org.junit.rules.ExpectedException;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import static org.mockito.Mockito.verify;
+
 /**
  * Created by Tuane on 9/02/17.
  */
@@ -41,4 +43,12 @@ public class DiskSongDataStoreTest extends ApplicationTestCase {
         expectedException.expect(UnsupportedOperationException.class);
         diskSongDataStore.songEntityList();
     }
+
+    @Test
+    public void testGetSongEntityDetailsFromCache() {
+        diskSongDataStore.songEntityDetails(FAKE_SONG_ID);
+        verify(mockSongCache).get(FAKE_SONG_ID);
+    }
+
+    
 }
