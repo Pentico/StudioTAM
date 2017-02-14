@@ -63,8 +63,7 @@ public class SongDataStoreFactory {
      * Get a list of all songs on the cached
      * @return
      */
-    public SongDataStore createDiskDataStore()
-    {
+    public SongDataStore createDiskDataStore() {
         LoadingSongs loadingSongs = new LoadingSongs();
         SongEntityDataMapper songEntityDataMapper = new SongEntityDataMapper();
         RestSongsApiImpl restSongsApi = new RestSongsApiImpl(context, songEntityDataMapper, loadingSongs);
