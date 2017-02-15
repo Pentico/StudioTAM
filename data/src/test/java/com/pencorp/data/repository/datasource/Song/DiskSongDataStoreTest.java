@@ -23,8 +23,6 @@ public class DiskSongDataStoreTest extends ApplicationTestCase {
 
     private static final long FAKE_SONG_ID = 789;
 
-    private DiskSongDataStore diskSongDataStore;
-
     private DiskSongDataStore diskSongDataStore1;
 
     @Mock
@@ -39,7 +37,6 @@ public class DiskSongDataStoreTest extends ApplicationTestCase {
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        diskSongDataStore = new DiskSongDataStore(mockSongCache, null);
         diskSongDataStore1 = new DiskSongDataStore(mockSongCache, mockRestSongsApi);
     }
 
@@ -49,18 +46,18 @@ public class DiskSongDataStoreTest extends ApplicationTestCase {
     @Test
     public void testGetSongEntityListUnsupported() {
         expectedException.expect(UnsupportedOperationException.class);
-        diskSongDataStore.songEntityList();
+        diskSongDataStore1.songEntityList();
     }
 
     @Test
     public void testGetSongEntityDetailsFromCache() {
-        diskSongDataStore.songEntityDetails(FAKE_SONG_ID);
+        diskSongDataStore1.songEntityDetails(FAKE_SONG_ID);
         verify(mockSongCache).get(FAKE_SONG_ID);
     }
 
     @Test
     public void testGetSongEntityListFromCache() {
-        diskSongDataStore.songEntityList();
+        diskSongDataStore1.songEntityList();
         verify(mockSongCache).get();
     }
 }
