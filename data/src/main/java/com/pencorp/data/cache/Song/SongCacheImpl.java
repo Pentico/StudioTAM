@@ -100,6 +100,9 @@ public class SongCacheImpl implements SongCache {
         if(songEntityList != null){
             File songEntityListFile = this.buildFile(1934); // Random number to build the file
             String jsonString = this.serializer.serializeSongList(songEntityList);
+            this.executeAsynchronously(new CacheWriter(this.fileManager, songEntityListFile,
+                    jsonString));
+            setLastCacheUpdateTimeMillis(); // TODO check this !! important
         }
     }
 

@@ -36,7 +36,7 @@ public class DiskSongDataStore implements SongDataStore {
 
     @Override
     public Observable<List<SongEntity>> songEntityList() {
-       return this.restSongsApi.songEntityList().doOnNext(savetoCacheAction);
+       return this.songCache.get();
     }
 
     @Override

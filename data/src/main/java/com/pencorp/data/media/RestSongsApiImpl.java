@@ -7,6 +7,7 @@ import android.net.NetworkInfo;
 import com.fernandocejas.frodo.annotation.RxLogObservable;
 import com.pencorp.data.entity.SongEntity;
 import com.pencorp.data.entity.mapper.SongEntityDataMapper;
+import com.pencorp.data.exception.NetworkConnectionException;
 import com.pencorp.data.exception.SongNotFoundException;
 
 import java.util.ArrayList;
@@ -46,8 +47,12 @@ public class RestSongsApiImpl implements RestSongsApi {
 
         return Observable.create(subscriber -> {
             List<SongEntity> repsonse = GetSongs();
+            if( repsonse != null) {
                 subscriber.onNext(repsonse);
                 subscriber.onCompleted();
+            }else {
+                subscriber.onError(new NetworkConnectionException());
+            }
 
         });
     }
