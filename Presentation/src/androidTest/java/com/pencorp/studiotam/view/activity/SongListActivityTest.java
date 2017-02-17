@@ -31,6 +31,14 @@ public class SongListActivityTest extends
         super.tearDown();
     } // EOF
 
+    public void testContainsSongListFragment() {
+
+    }
+
+    public void testContainsProperTitle() {
+
+    }
+
 
     private Intent createTargetIntent() {
         Intent intent =
