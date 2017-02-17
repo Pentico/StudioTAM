@@ -78,6 +78,7 @@ dependencies {
     compile presentationDependencies.recyclerView
     provided presentationDependencies.javaxAnnotation
 
+
     androidTestCompile presentationTestDependencies.mockito
     androidTestCompile presentationTestDependencies.dexmaker
     androidTestCompile presentationTestDependencies.dexmakerMockito

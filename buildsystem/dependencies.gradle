@@ -28,9 +28,9 @@ ext {
     robolectricVersion = '3.2.2'
     jUnitVersion = '4.12'
     assertJVersion = '1.7.1'
-    mockitoVersion = '1.9.5'
+    mockitoVersion = '2.7.7'
     dexmakerVersion = '1.0'
-    espressoVersion = '2.0'
+    espressoVersion = '2.2.2'
     testingSupportLibVersion = '0.1'
     //Development
     leakCanaryVersion = '1.5'
@@ -47,6 +47,7 @@ ext {
 
     presentationTestDependencies = [
             mockito:            "org.mockito:mockito-core:${mockitoVersion}",
+            junit:              "junit:junit:${jUnitVersion}",
             dexmaker:           "com.google.dexmaker:dexmaker:${dexmakerVersion}",
             dexmakerMockito:    "com.google.dexmaker:dexmaker-mockito:${dexmakerVersion}",
             espresso:           "com.android.support.test.espresso:espresso-core:${espressoVersion}",
