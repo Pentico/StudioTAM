@@ -5,6 +5,10 @@ import com.pencorp.studiotam.model.SongModel;
 
 import junit.framework.TestCase;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -50,7 +54,24 @@ public class SongModelDataMapperTest extends TestCase {
 
     }
 
+    public void testTransformSongCollection() {
+
+        Song mockSongOne = mock(Song.class);
+        Song mockSongtwo = mock(Song.class);
+
+        List<Song> songList = new ArrayList<>(5);
+        songList.add(mockSongOne);
+        songList.add(mockSongtwo);
+
+        Collection<SongModel> songModelList = songModelDataMapper.transform(songList);
+
+        assertThat(songModelList.toArray()[0], is(instanceOf(SongModel.class)));
+        assertThat(songModelList.toArray()[1], is(instanceOf(SongModel.class)));
+        assertThat(songModelList.size(), is(2));
+    }
+
     private Song createFakeSong() {
+
         Song song = new Song(FAKE_SONG_ID,FAKE_PATH);
         song.setGenre(FAKE_GENRE);
         song.setTitle(FAKE_TITLE);
@@ -59,5 +80,7 @@ public class SongModelDataMapperTest extends TestCase {
         song.setArtist(FAKE_ARTIST);
         song.setTrack_no(FAKE_TRACK_NO);
         song.setDuration_ms(FAKE_DURATION_MS);
+
+        return song;
     }
 }
