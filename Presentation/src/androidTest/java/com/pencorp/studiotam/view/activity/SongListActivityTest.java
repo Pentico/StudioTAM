@@ -1,7 +1,6 @@
 package com.pencorp.studiotam.view.activity;
 
 import android.content.Intent;
-import android.test.ActivityInstrumentationTestCase;
 import android.test.ActivityInstrumentationTestCase2;
 
 import com.pencorp.studiotam.View.activity.SongListActivity;
