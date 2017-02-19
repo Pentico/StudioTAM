@@ -12,7 +12,7 @@ import org.mockito.MockitoAnnotations;
 
 import rx.Subscriber;
 
-import static org.mockito.BDDMockito.any;
+import static org.mockito.Matchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 
@@ -51,6 +51,6 @@ public class SongDetailsPresenterTest extends AndroidTestCase {
 
         verify(mockSongDetailsView).hideRetry();
         verify(mockSongDetailsView).showLoading();
-        verify(mockSongDetailsView).execute(any(Subscriber.class));
+        verify(mockGetSong).execute(any(Subscriber.class));
     }
 }
