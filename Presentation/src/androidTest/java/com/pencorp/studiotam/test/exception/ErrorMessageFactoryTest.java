@@ -1,13 +1,15 @@
-package com.pencorp.studiotam.exception;
+package com.pencorp.studiotam.test.exception;
 
 import android.test.AndroidTestCase;
 
 import com.pencorp.data.exception.NetworkConnectionException;
 import com.pencorp.data.exception.SongNotFoundException;
+
 import com.pencorp.studiotam.R;
 
+
 import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.core.Is.is;
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 
@@ -33,7 +35,7 @@ public class ErrorMessageFactoryTest extends AndroidTestCase {
 
     public void testUserNotFoundErrorMessage() {
 
-        String expectedMessage = getContext().getString(R.string.exception_message_user_not_found);
+        String expectedMessage = getContext().getString(R.string.exception_message_song_not_found);
         String actualMessage = ErrorMessageFactory.create(getContext(), new SongNotFoundException());
         assertThat(actualMessage, is(equalTo(expectedMessage)));
     }

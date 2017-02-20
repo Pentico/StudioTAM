@@ -1,11 +1,11 @@
-package com.pencorp.studiotam.presenter;
+package com.pencorp.studiotam.test.presenter;
 
 import android.content.Context;
 import android.test.AndroidTestCase;
 
 import com.pencorp.domain.interactor.GetSong;
 import com.pencorp.studiotam.View.SongDetailsView;
-import com.pencorp.studiotam.mapper.SongModelDataMapper;
+import com.pencorp.studiotam.test.mapper.SongModelDataMapper;
 
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;

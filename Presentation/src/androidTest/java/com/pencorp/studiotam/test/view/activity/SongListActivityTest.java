@@ -1,4 +1,4 @@
-package com.pencorp.studiotam.view.activity;
+package com.pencorp.studiotam.test.view.activity;
 
 import android.content.Intent;
 import android.test.ActivityInstrumentationTestCase2;

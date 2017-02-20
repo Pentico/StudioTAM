@@ -1,8 +1,7 @@
-package com.pencorp.studiotam.presenter;
+package com.pencorp.studiotam.test.presenter;
 
 import android.support.annotation.NonNull;
 
-import com.fernandocejas.frodo.annotation.RxLogObservable;
 import com.fernandocejas.frodo.annotation.RxLogSubscriber;
 import com.pencorp.domain.Song;
 import com.pencorp.domain.exception.DefaultErrorBundle;
@@ -10,9 +9,9 @@ import com.pencorp.domain.exception.ErrorBundle;
 import com.pencorp.domain.interactor.DefaultSubscriber;
 import com.pencorp.domain.interactor.UseCase;
 import com.pencorp.studiotam.View.SongDetailsView;
-import com.pencorp.studiotam.exception.ErrorMessageFactory;
+import com.pencorp.studiotam.test.exception.ErrorMessageFactory;
 import com.pencorp.studiotam.internal.di.PerActivity;
-import com.pencorp.studiotam.mapper.SongModelDataMapper;
+import com.pencorp.studiotam.test.mapper.SongModelDataMapper;
 import com.pencorp.studiotam.model.SongModel;
 
 import javax.inject.Inject;

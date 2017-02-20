@@ -13,7 +13,7 @@ import com.pencorp.studiotam.R;
 import com.pencorp.studiotam.View.SongDetailsView;
 import com.pencorp.studiotam.internal.di.components.SongComponent;
 import com.pencorp.studiotam.model.SongModel;
-import com.pencorp.studiotam.presenter.SongDetailsPresenter;
+import com.pencorp.studiotam.test.presenter.SongDetailsPresenter;
 
 import javax.inject.Inject;
 

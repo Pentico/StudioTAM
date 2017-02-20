@@ -13,11 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.pencorp.studiotam.exception;
+package com.pencorp.studiotam.test.exception;
 
 import android.content.Context;
 
 import com.pencorp.data.exception.NetworkConnectionException;
+import com.pencorp.data.exception.SongNotFoundException;
 import com.pencorp.data.exception.UserNotFoundException;
 import com.pencorp.studiotam.R;
 
@@ -43,8 +44,8 @@ public class ErrorMessageFactory {
 
     if (exception instanceof NetworkConnectionException) {
       message = context.getString(R.string.exception_message_no_connection);
-    } else if (exception instanceof UserNotFoundException) {
-      message = context.getString(R.string.exception_message_user_not_found);
+    } else if (exception instanceof SongNotFoundException) {
+      message = context.getString(R.string.exception_message_song_not_found);
     }
 
     return message;

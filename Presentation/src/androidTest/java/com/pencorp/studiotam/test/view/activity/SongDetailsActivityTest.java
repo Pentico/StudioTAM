@@ -1,4 +1,4 @@
-package com.pencorp.studiotam.view.activity;
+package com.pencorp.studiotam.test.view.activity;
 
 import com.pencorp.studiotam.View.activity.SongDetailsActivity;
 

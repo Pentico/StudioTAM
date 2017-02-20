@@ -1,4 +1,4 @@
-package com.pencorp.studiotam.presenter;
+package com.pencorp.studiotam.test.presenter;
 
 /**
  * Created by Tuane on 10/02/17.

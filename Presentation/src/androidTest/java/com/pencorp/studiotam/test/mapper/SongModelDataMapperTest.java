@@ -1,4 +1,4 @@
-package com.pencorp.studiotam.mapper;
+package com.pencorp.studiotam.test.mapper;
 
 import com.pencorp.domain.Song;
 import com.pencorp.studiotam.model.SongModel;

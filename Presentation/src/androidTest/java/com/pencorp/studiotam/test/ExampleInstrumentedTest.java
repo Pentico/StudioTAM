@@ -1,4 +1,4 @@
-package com.pencorp.studiotam;
+package com.pencorp.studiotam.test;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.pencorp.studiotam", appContext.getPackageName());
+        assertEquals("com.penCorp.StudioTAM.presentation", appContext.getPackageName());
     }
 }

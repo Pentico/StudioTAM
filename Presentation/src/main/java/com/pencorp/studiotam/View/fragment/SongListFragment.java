@@ -16,7 +16,7 @@ import com.pencorp.studiotam.View.adapter.SongsAdapter;
 import com.pencorp.studiotam.View.adapter.SongsLayoutManager;
 import com.pencorp.studiotam.internal.di.components.SongComponent;
 import com.pencorp.studiotam.model.SongModel;
-import com.pencorp.studiotam.presenter.SongListPresenter;
+import com.pencorp.studiotam.test.presenter.SongListPresenter;
 
 import java.util.Collection;
 

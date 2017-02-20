@@ -16,7 +16,6 @@ sourceSets {
 }
 
 dependencies {
-
     def domainDependencies = rootProject.ext.domainDependencies
     def domainTestDependencies = rootProject.ext.domainTestDependencies
 
@@ -27,5 +26,4 @@ dependencies {
 
     testCompile domainTestDependencies.junit
     testCompile domainTestDependencies.mockito
-    compile 'com.fernandocejas.frodo:frodo-api:0.8.3'
 }
