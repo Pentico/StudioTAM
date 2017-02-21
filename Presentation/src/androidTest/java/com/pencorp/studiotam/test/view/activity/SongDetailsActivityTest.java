@@ -1,12 +1,17 @@
 package com.pencorp.studiotam.test.view.activity;
 
+import com.pencorp.studiotam.R;
 import com.pencorp.studiotam.View.activity.SongDetailsActivity;
 
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.test.ActivityInstrumentationTestCase2;
 
-
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.not;
 
 /**
  * Created by Tuane on 17/02/17.
@@ -34,6 +39,18 @@ public class SongDetailsActivityTest  extends
     @Override
     protected void tearDown() throws Exception {
         super.tearDown();
+    }
+
+    public void testContainsSongDetailsFragment() {
+        Fragment songDetailsFragment =
+                songDetailsActivity.getFragmentManager().findFragmentById(R.id.fragmentContainer);
+        assertThat(songDetailsFragment, is(notNullValue()));
+    }
+
+    public void testContainsProperTitle() {
+        String actualTitle = this.songDetailsActivity.getTitle().toString().trim();
+
+        assertThat(actualTitle, is("Song Details"));
     }
 
     public void testLoadSongHappyCaseViews() {
