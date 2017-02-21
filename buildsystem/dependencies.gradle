@@ -28,7 +28,7 @@ ext {
     robolectricVersion = '3.2.2'
     jUnitVersion = '4.12'
     assertJVersion = '1.7.1'
-    mockitoVersion = '2.7.7'
+    mockitoVersion = '1.9.5'
     dexmakerVersion = '1.0'
     espressoVersion = '2.2.2'
     testingSupportLibVersion = '0.1'
