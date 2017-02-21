@@ -8,6 +8,10 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.test.ActivityInstrumentationTestCase2;
 
+import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -54,6 +58,12 @@ public class SongDetailsActivityTest  extends
     }
 
     public void testLoadSongHappyCaseViews() {
+        onView(withId(R.id.rl_retry)).check(matches(not(isDisplayed())));
+        onView(withId(R.id.rl_progress)).check(matches(not(isDisplayed())));
+
+        onView(withId(R.id.tv_album)).check(matches(isDisplayed()));
+        onView(withId(R.id.tv_artist)).check(matches(isDisplayed()));
+        onView(withId(R.id.tv_album)).check(matches(isDisplayed()));
         // TODO
     }
 
