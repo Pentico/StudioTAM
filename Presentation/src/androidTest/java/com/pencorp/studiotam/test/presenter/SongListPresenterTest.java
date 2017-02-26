@@ -32,6 +32,8 @@ public class SongListPresenterTest extends AndroidTestCase {
     private GetSongList mockGetSongList;
     @Mock
     private SongModelDataMapper mockSongModelDataMapper;
+
+
     @Override
     protected void setUp() throws Exception {
         super.setUp();
@@ -49,5 +51,5 @@ public class SongListPresenterTest extends AndroidTestCase {
         verify(mockSongListView).hideRetry();
         verify(mockSongListView).showLoading();
         verify(mockGetSongList).execute(any(Subscriber.class));
-    }
+    } //  EOF
 }
