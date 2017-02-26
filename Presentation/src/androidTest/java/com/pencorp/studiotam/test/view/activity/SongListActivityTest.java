@@ -46,7 +46,7 @@ public class SongListActivityTest extends
 
         String actualTitle = this.songListActivity.getTitle().toString().trim();
 
-        assertThat(actualTitle, is("Songs List"));
+        assertThat(actualTitle, is("Song List"));
     }
 
 
